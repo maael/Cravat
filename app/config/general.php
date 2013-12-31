@@ -1,5 +1,5 @@
 <?php
 $config = array(
-    'domain' => 'localhost',
-    'timezone' => 'Europe/London'
+    'timezone' => 'Europe/London',
+    'devMode' => 'true'
 );

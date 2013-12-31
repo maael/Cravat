@@ -10,8 +10,8 @@ abstract class Controller{
             $view = new $this->view();
             $view->render();
         }
-        if(isset($_GET['debug'])){
-            \Cravat\Debug::output();
+        if(isset($_GET['debug'])&&Cravat::$devMode){
+            Debug::output();
         }
     }
     abstract public function index();

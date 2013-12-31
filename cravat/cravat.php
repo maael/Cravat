@@ -6,6 +6,7 @@ class Cravat{
     public static $autoloader = null;
     public static $entityManager = null;
     public static $database = array();
+    public static $devMode = false;
     public static $routes = array();
     public static $startTime = null;
     public static function initialize(){
@@ -17,8 +18,17 @@ class Cravat{
         require_once(BASE.DS.'app'.DS.'config'.DS.'routes.php');
         require_once(BASE.DS.'app'.DS.'config'.DS.'general.php');
         require(BASE.DS.'vendor'.DIRECTORY_SEPARATOR.'autoload.php');
-        date_default_timezone_set($config['timezone']);
-        define('DOMAIN',$config['domain']);
+        if(array_key_exists('timezone', $config)){
+            date_default_timezone_set($config['timezone']);
+        }
+        if(array_key_exists('timezone', $config)){
+            define('DOMAIN',$config['domain']);
+        } else {
+            define('DOMAIN','localhost');
+        }
+        if(array_key_exists('devMode', $config)){
+            self::$devMode = $config['devMode'];
+        }
         self::$database = $database;
         self::$routes = $routes;
         self::initialize_entity_manager();
