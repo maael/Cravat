@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+    <title>{$title}</title>
+    {loop="$styles"}
+    <link rel="stylesheet" href="public/css/{$value}.css">
+    {/loop}
+    {loop="$scripts"}
+    <script type="text/javascript" src="public/js/{$value}.js"></script>
+    {/loop}
+</head>
+<body>

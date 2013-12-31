@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteRule 404 public/error.php [L]
+
+RewriteCond %{REQUEST_URI} !(^/\w*/public(/?)|^/public(/?))
+RewriteRule . index.php [L]
+
+ErrorDocument 404 "Page could not be found. Return to <a href='..'>home page</a>"
