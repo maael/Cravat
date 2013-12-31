@@ -3,13 +3,16 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\Driver\YamlDriver;
 class Cravat{
+    public static $autoloader = null;
     public static $entityManager = null;
     public static $database = array();
     public static $routes = array();
+    public static $startTime = null;
     public static function initialize(){
+        $startTime = microtime(true);
         define('BASE',dirname(dirname(__FILE__)));
         define('DS',DIRECTORY_SEPARATOR);
-        require('autoload.php');
+        self::$autoloader = require('autoload.php');
         require_once(BASE.DS.'app'.DS.'config'.DS.'database.php');
         require_once(BASE.DS.'app'.DS.'config'.DS.'routes.php');
         require_once(BASE.DS.'app'.DS.'config'.DS.'general.php');

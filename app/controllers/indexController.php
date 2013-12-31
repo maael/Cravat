@@ -4,6 +4,5 @@ class indexController extends \Cravat\Controller{
         $this->view = "indexView";
         $user = new userEntity();
         $user = $user->get(1);
-        echo $user->getName();
     }
 } 

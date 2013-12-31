@@ -1,5 +1,6 @@
 <?php namespace Cravat;
 class Autoload{
+    public $loaded = array();
     function __construct(){
         spl_autoload_extensions(".php");
         $loaders = array_diff(get_class_methods($this),array("__construct","loader"));
@@ -11,7 +12,7 @@ class Autoload{
         $className = explode('\\', $className);
         $file = array_pop($className).'.php';
         if(!is_null($path)){$path=implode(DS,$path);$path .= DS;}
-        if(file_exists($path.$file)){include($path.$file);}   
+        if(file_exists($path.$file)){include($path.$file);array_push($this->loaded, $path.$file);}   
     }
     private function cravat_loader($className){
         $this->loader($className,array('cravat'));
@@ -35,4 +36,4 @@ class Autoload{
         error::log_cravat('Class '.$className.' could not be loaded');
     }
 }
-new \Cravat\Autoload();
+return new \Cravat\Autoload();
