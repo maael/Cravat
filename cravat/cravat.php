@@ -21,7 +21,7 @@ class Cravat{
         if(array_key_exists('timezone', $config)){
             date_default_timezone_set($config['timezone']);
         }
-        if(array_key_exists('timezone', $config)){
+        if(array_key_exists('domain', $config)){
             define('DOMAIN',$config['domain']);
         } else {
             define('DOMAIN','localhost');
