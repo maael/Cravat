@@ -4,6 +4,6 @@ class adminController extends \Cravat\Controller{
         $this->view = "adminView";
     }
     public function settings(){
-        echo "settings loaded";
+        $this->view = "adminView";
     }
 } 

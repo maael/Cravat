@@ -9,10 +9,21 @@ class Cravat{
     public static $devMode = false;
     public static $routes = array();
     public static $startTime = null;
+    public static $controller = null;
+    public static $action = null;
+    public static $view = null;
+    public static $template = null;
+    public static $styles = array();
+    public static $scripts = array();
     public static function initialize(){
         $startTime = microtime(true);
+        session_start();
         define('BASE',dirname(dirname(__FILE__)));
         define('DS',DIRECTORY_SEPARATOR);
+        $parts = explode('/',$_SERVER['SCRIPT_NAME']);
+        array_pop($parts);
+        $parts = implode('/',$parts);
+        define('APP_BASE',$parts);
         self::$autoloader = require('autoload.php');
         require_once(BASE.DS.'app'.DS.'config'.DS.'database.php');
         require_once(BASE.DS.'app'.DS.'config'.DS.'routes.php');
@@ -50,5 +61,10 @@ class Cravat{
             $conn['dbname'] = self::$database['dbname'];
         }
         self::$entityManager = EntityManager::create($conn, $config);
+    }
+    public static function finialize(){
+        if(isset($_GET['debug'])&&Cravat::$devMode){
+            Debug::output();
+        }
     }
 }

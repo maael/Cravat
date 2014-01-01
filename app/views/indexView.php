@@ -1,7 +1,7 @@
 <?php
 class indexView extends \Cravat\View{
+    public $template = 'index';
     public function render(){
-        $this->template->assign('title','Hello!');
-        $this->draw('index');
+        $this->tpl->assign('title','Hello!');
     }
 }

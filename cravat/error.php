@@ -8,10 +8,7 @@ class error{
         $message = "MESSAGE ".$message;
         $message .= ' | FILE '.$file.' | REQUEST '.$_SERVER['REQUEST_URI'].' | FROM '.$_SERVER['REMOTE_ADDR'].'@'.date('Y-m-d H:i:s',$_SERVER['REQUEST_TIME']).PHP_EOL;
         file_put_contents(BASE.DS.'logs'.DS.$type.'.log', $message, FILE_APPEND | LOCK_EX);
-        $parts = explode('/',$_SERVER['SCRIPT_NAME']);
-        array_pop($parts);
-        $parts = implode('/',$parts);
-        header('Location: http://'.DOMAIN.$parts.'/');
+        header('Location: http://'.DOMAIN.APP_BASE.'/');
         die();
     }
     static public function log_cravat($message){

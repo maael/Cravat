@@ -9,7 +9,8 @@ class Router{
         $path = trim(explode("?",$path)[0],'/');
         if(array_key_exists($path, $routes)){
             $controller = new $routes[$path]();
-            self::$controller = $routes[$path];
+            Cravat::$controller = $routes[$path];
+            Cravat::$action = 'index';
             $controller->index(); 
         } else {
             $actionless_path = explode('/',$path);
@@ -18,8 +19,8 @@ class Router{
             if(array_key_exists($actionless_path, $routes)){
                 $controller = new $routes[$actionless_path]();
                 if(in_array($action,get_class_methods($controller))){
-                    self::$controller = $routes[$actionless_path];
-                    self::$action = $action;
+                    Cravat::$controller = $routes[$actionless_path];
+                    Cravat::$action = $action;
                     $controller->$action(); 
                 } else {
                     error::log_route("No Action '".$action."' exists for Controller '".(($actionless_path=="") ? "index" : $actionless_path)."'");
