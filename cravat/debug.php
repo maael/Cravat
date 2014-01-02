@@ -30,11 +30,11 @@ class Debug{
         $time = microtime(true) - Cravat::$startTime;
         if(!empty(Cravat::$styles)){self::log('CSS Files','header');}
         foreach (Cravat::$styles as $style) {
-            self::log(APP_BASE.'/public/css/'.$style.'.css');
+            self::log($style);
         }
         if(!empty(Cravat::$scripts)){self::log('JS Files','header');}
         foreach (Cravat::$scripts as $script) {
-            self::log(APP_BASE.'/public/js/'.$script.'.css');
+            self::log($script);
         }
         self::log('Misc Data','header');
         self::log('Execution Time | '.$time);
