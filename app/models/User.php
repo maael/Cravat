@@ -12,21 +12,21 @@ class User{
     {
         return $this->username;
     }
-    public function setName($username)
-    {
-        $this->username = $username;
-    }
     public function getEmail()
     {
         return $this->email;
     }
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
     public function getPassword()
     {
         return $this->password;
+    }
+    public function setName($username)
+    {
+        $this->username = $username;
+    }
+    public function setEmail($email)
+    {
+        $this->email = $email;
     }
     public function setPassword($password)
     {

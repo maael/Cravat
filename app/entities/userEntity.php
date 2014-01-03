@@ -1,15 +1,22 @@
 <?php
 use Doctrine\ORM\EntityRepository;
-class userEntity extends \Cravat\Entity{
+class userEntity extends User{
+    private $user = null;
+    function __construct(){
+        $this->user = new User();
+    }
     public function create($name,$password,$email){
-        $user = new User();
-        $user->setName($name);
-        $user->setPassword($password);
-        $user->setEmail($email);
-        \Cravat\Cravat::$entityManager->persist($user);
+        $this->user->setName($name);
+        $this->user->setPassword($password);
+        $this->user->setEmail($email);
+        \Cravat\Cravat::$entityManager->persist($this->user);
         \Cravat\Cravat::$entityManager->flush();
     }
-    public function get($id){
-        return \Cravat\Cravat::$entityManager->find('User', $id);
+    public function load($id){
+        $search = \Cravat\Cravat::$entityManager->find('User', $id);
+        if(!is_null($search)){$this->user = $search;}
+    }
+    public function get(){
+        return (is_null($this->user->getName()) ? null : $this->user);
     }
 }
