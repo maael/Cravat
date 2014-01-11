@@ -16,3 +16,6 @@ User:
       type: string
     password:
       type: string
+  manyToOne:
+    role:
+      targetEntity: Role

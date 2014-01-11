@@ -14,25 +14,25 @@ class Autoload{
         if(!is_null($path)){$path=implode(DS,$path);$path .= DS;}
         if(file_exists($path.$file)){include($path.$file);array_push($this->loaded, $path.$file);}   
     }
-    private function cravat_loader($className){
+    public function cravat_loader($className){
         $this->loader($className,array('cravat'));
     }
-    private function config_loader($className){
+    public function config_loader($className){
         $this->loader($className,array('app','config'));
     }
-    private function controller_loader($className){
+    public function controller_loader($className){
         $this->loader($className,array('app','controllers'));
     }
-    private function entity_loader($className){
+    public function entity_loader($className){
         $this->loader($className,array('app','entities'));
     }
-    private function model_loader($className){
+    public function model_loader($className){
         $this->loader($className,array('app','models'));
     }
-    private function view_loader($className){
+    public function view_loader($className){
         $this->loader($className,array('app','views'));
     }
-    private function error($className){
+    public function error($className){
         error::log_cravat('Class '.$className.' could not be loaded');
     }
 }
