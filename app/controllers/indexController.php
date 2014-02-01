@@ -2,7 +2,7 @@
 class indexController extends \Cravat\Controller{
     public function index(){
         $this->view = "indexView";
-        echo \Cravat\Format::make()->tag('b')->format('hey');
-        echo '<br/>';
+        $hey = \Cravat\Format::make()->tag('b')->format('hey');
+        $less = \Cravat\Validation::make()->less_than(12);
     }
 }

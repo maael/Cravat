@@ -1,7 +1,15 @@
 {include="includes\/header"}
-    <div id="content">
+    <div class="content">
         <div id="topContent">
-            View members here.
+            {loop="$user_list"}
+                <a href='{#APP_BASE#}/users?id={$key+1}'>{$key+1} - {$value}</a></br>
+                {else}
+                {if="isset($user)"}
+                    Username: {$user}
+                {else}
+                    User List is empty
+                {/if}
+            {/loop}
         </div>
     </div>
 {include="includes\/footer"}
