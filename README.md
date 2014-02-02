@@ -20,11 +20,11 @@ Adding styles and scripts
 -------------------------
 ###Styles
 ```php
-$this->add('style','file with no extension');
+$this->add('css','file with no extension');
 ```
 ###Scripts
 ```php
-$this->add('script','file with no extension');
+$this->add('js','file with no extension');
 ```
 
 Formating and Validation
