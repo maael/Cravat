@@ -27,11 +27,9 @@ abstract class View{
         }
     }
     protected function add($type,$object,$absolute = false){
-        $type .='s';
+        if($type=='css'){$type='styles';}
+        else if($type=='js'){$type='scripts';}
         if(!$absolute){
-            if($type=='scripts'){$extension='.js';}
-            elseif($type=='styles'){$extension='.css';}
-            else{$extension='';}
             $object = APP_BASE.'/public/'.$object.$extension;
         }
         array_push($this->$type,$object);
