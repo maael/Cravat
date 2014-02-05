@@ -1,6 +1,7 @@
 <?php
 $routes = array(
-    '' => 'indexController',
-    'admin' => 'adminController',
-    'users' => 'usersController'
+    '' => array('controller' => 'indexController'),
+    'admin' => array('controller'=> 'adminController'),
+    'admin/settings' => array('controller' => 'adminController','action' => 'settings'),
+    'users' => array('controller'=> 'usersController')
 );

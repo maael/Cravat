@@ -12,7 +12,7 @@ abstract class View{
         );
         Tpl::configure( $config );
         $this->tpl = new Tpl;
-        $this->add('style','css/main');
+        $this->add('css','css/main.css');
     }
     function __destruct(){
         if(is_null($this->template)){
@@ -27,11 +27,11 @@ abstract class View{
         }
     }
     protected function add($type,$object,$absolute = false){
+        if(!$absolute){
+            $object = APP_BASE.'/public/'.$object;
+        }
         if($type=='css'){$type='styles';}
         else if($type=='js'){$type='scripts';}
-        if(!$absolute){
-            $object = APP_BASE.'/public/'.$object.$extension;
-        }
         array_push($this->$type,$object);
         array_push(Cravat::$$type, $object);
         $this->tpl->assign($type,$this->$type); 
