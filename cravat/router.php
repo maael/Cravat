@@ -13,7 +13,7 @@ class Router{
                 $controller->$action();
             } else {
                 self::$action = 'index';
-               $controller->index(); 
+                $controller->index(); 
             }
         } else {
             error::log_route("No controller/actions for '".$path."'");
