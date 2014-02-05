@@ -9,9 +9,7 @@ class Cravat{
     public static $devMode = false;
     public static $routes = array();
     public static $startTime = null;
-    public static $controller = null;
-    public static $action = null;
-    public static $view = null;
+    public static $page = null;
     public static $template = null;
     public static $styles = array();
     public static $scripts = array();

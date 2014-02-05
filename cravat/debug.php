@@ -38,9 +38,9 @@ class Debug{
         }
         self::log('Misc Data','header');
         self::log('Execution Time | '.$time);
-        self::log('Controller     | '.Cravat::$controller);
-        self::log('Action         | '.Cravat::$action);
-        self::log('View           | '.Cravat::$view);
+        self::log('Controller     | '.Cravat::$page->getController());
+        self::log('Action         | '.Cravat::$page->getAction());
+        self::log('View           | '.Cravat::$page->getView());
         self::log('Template       | '.Cravat::$template);
         self::log('Autoloaded - '.count(Cravat::$autoloader->loaded).' Files loaded','header');
         foreach (Cravat::$autoloader->loaded as $loaded) {
