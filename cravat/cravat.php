@@ -10,6 +10,7 @@ class Cravat{
     public static $routes = array();
     public static $startTime = null;
     public static $page = null;
+    public static $route_variables = array();
     public static $template = null;
     public static $styles = array();
     public static $scripts = array();
