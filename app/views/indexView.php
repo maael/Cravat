@@ -7,6 +7,6 @@ class indexView extends \Cravat\View{
         $less = \Cravat\Validation::make()->less_than(12);
         $this->tpl->assign('description','A simple PHP MVC framework');
         $this->add('css','css/tie.css');
-        $this->add('css','css/vendor/font-awesome-4.0.3/css/font-awesome.min.css');
+        $this->add('css','vendor/css/font-awesome-4.0.3/css/font-awesome.min.css');
     }
 }

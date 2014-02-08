@@ -4,6 +4,6 @@ class adminView extends \Cravat\View{
     public function render(){
         $this->tpl->assign('title','Admin|'.\Cravat\Cravat::$page->getAction());
         $this->add('css','css/tie.css');
-        $this->add('css','css/vendor/font-awesome-4.0.3/css/font-awesome.min.css');
+        $this->add('css','vendor/css/font-awesome-4.0.3/css/font-awesome.min.css');
     }
 }
