@@ -1,9 +1,7 @@
 {
     "require": {
-        "doctrine/orm": "*",
         "lightopenid/lightopenid": "*",
-        "rain/raintpl": "*",
-        "symfony/yaml": "2.*"
+        "rain/raintpl": "*"
     },
     "autoload": {
         "psr-0": {"": "src/"}
